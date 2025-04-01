@@ -20,3 +20,8 @@ add_executable(
     3
     "3.无重复字符的最长子串.cpp"
 )
+
+add_executable(
+    4
+    "4.寻找两个正序数组的中位数.cpp"
+)
