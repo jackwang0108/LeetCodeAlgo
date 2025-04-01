@@ -31,3 +31,8 @@ add_executable(
     76
     "76.最小覆盖子串.cpp"
 )
+
+add_executable(
+    98
+    "98.验证二叉搜索树.cpp"
+)
