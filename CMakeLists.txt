@@ -25,3 +25,9 @@ add_executable(
     4
     "4.寻找两个正序数组的中位数.cpp"
 )
+
+
+add_executable(
+    76
+    "76.最小覆盖子串.cpp"
+)
