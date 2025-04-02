@@ -36,3 +36,8 @@ add_executable(
     98
     "98.验证二叉搜索树.cpp"
 )
+
+add_executable(
+    96
+    "96.不同的二叉搜索树.cpp"
+)   
