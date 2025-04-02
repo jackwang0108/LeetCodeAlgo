@@ -40,4 +40,9 @@ add_executable(
 add_executable(
     96
     "96.不同的二叉搜索树.cpp"
-)   
+)
+
+add_executable(
+    101
+    "101.对称二叉树.cpp"
+)
