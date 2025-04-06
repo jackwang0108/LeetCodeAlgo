@@ -8,18 +8,11 @@
 #include <numeric>
 #include <vector>
 
+#include "tree.h"
+
 using std::cout;
 using std::vector;
 
-
-struct TreeNode {
-	int val;
-	TreeNode *left;
-	TreeNode *right;
-	TreeNode() : val(0), left(nullptr), right(nullptr) {}
-	TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-	TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-};
 
 // @lc code=start
 /**
@@ -60,8 +53,8 @@ public:
 		inorderTraversal(vec, root->right);
 	}
 
-	// 递归翻转, 然后检查是否和自己相同
-	bool isSymmetric(TreeNode *root) {
+	// 递归翻转, 然后检查左右子树是否相同, 复杂度比较高, 因为递归了两次
+	bool isSymmetric2(TreeNode *root) {
 		TreeNode *flippedRoot = flip(root);
 
 		return isSameTree(root, flippedRoot);
@@ -70,10 +63,7 @@ public:
 
 	bool isSameTree(TreeNode *p, TreeNode *q) {
 		if (p == nullptr || q == nullptr)
-			if (!(p == nullptr && q == nullptr))
-				return false;
-			else
-				return true;
+			return p == nullptr && q == nullptr;
 
 		bool isLeftSame = isSameTree(p->left, q->left);
 		bool isRightSame = isSameTree(p->right, q->right);
@@ -85,28 +75,34 @@ public:
 			return nullptr;
 
 		TreeNode *flippedRoot = new TreeNode(root->val);
-		flippedRoot->left = flip(root->left);
-		flippedRoot->right = flip(root->right);
+		flippedRoot->left = flip(root->right);
+		flippedRoot->right = flip(root->left);
 		return flippedRoot;
+	}
+
+	// 更好的思路是双指针
+	bool isSymmetric(TreeNode *root) {
+		if (root == nullptr)
+			return true;
+
+		return processIsSymmetric(root->left, root->right);
+	}
+
+	bool processIsSymmetric(TreeNode *left, TreeNode *right) {
+		if (left == nullptr && right == nullptr)
+			return true;
+		if (left == nullptr || right == nullptr)
+			return false;
+
+		return left->val == right->val && processIsSymmetric(left->left, right->right) && processIsSymmetric(left->right, right->left);
 	}
 };
 // @lc code=end
 
-TreeNode *buildTree(const vector<int> &vec, int currIdx) {
-	if (currIdx >= vec.size())
-		return nullptr;
-
-	if (vec[currIdx] == -1)
-		return nullptr;
-
-	TreeNode *root = new TreeNode(vec[currIdx]);
-	root->left = buildTree(vec, 2 * currIdx + 1);
-	root->right = buildTree(vec, 2 * currIdx + 2);
-	return root;
-}
 
 int main() {
-	TreeNode *root = buildTree({1, 2, 2, 2, -1, 2}, 0);
+	TreeNode *root = buildTree({1, 2, 2, -1, 3, -1, 3}, 0);
 
-	cout << std::boolalpha << Solution().isSymmetric(root);
+	cout << root;
+	cout << std::boolalpha << Solution().isSymmetric2(root);
 }
