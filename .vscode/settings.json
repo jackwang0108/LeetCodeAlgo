@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "*.make": "makefile",
+        "Makefile2": "makefile",
+        "map": "cpp",
+        "tuple": "cpp",
+        "cmath": "cpp",
+        "limits": "cpp"
+    },
+    "cSpell.words": [
+        "filpped"
+    ]
+}
