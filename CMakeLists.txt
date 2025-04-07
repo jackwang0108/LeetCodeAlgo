@@ -63,3 +63,8 @@ add_executable(
     105
     "105.从前序与中序遍历序列构造二叉树.cpp"
 )
+
+add_executable(
+    112
+    "112.路径总和.cpp"
+)
