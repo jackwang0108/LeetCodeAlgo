@@ -48,3 +48,8 @@ add_executable(
     101
     "101.对称二叉树.cpp"
 )
+
+add_executable(
+    99
+    "99.恢复二叉搜索树.cpp"
+)
