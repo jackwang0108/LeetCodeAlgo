@@ -45,6 +45,6 @@ public:
 
 
 int main() {
-	TreeNode *root = buildTree({5, 4, 8, 11, -1, 13, 4, 7, 2, -1, -1, -1, 1});
+	TreeNode *root = buildTreeFromLevelOrder({5, 4, 8, 11, -1, 13, 4, 7, 2, -1, -1, -1, 1});
 	Solution().hasPathSum(root, 22);
 }

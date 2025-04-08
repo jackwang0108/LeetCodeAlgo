@@ -71,6 +71,6 @@ public:
 
 
 int main() {
-	TreeNode *root = buildTree({3, 1, 4, -1, -1, 2});
+	TreeNode *root = buildTreeFromLevelOrder({3, 1, 4, -1, -1, 2});
 	Solution().recoverTree(root);
 }

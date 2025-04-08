@@ -101,7 +101,7 @@ public:
 
 
 int main() {
-	TreeNode *root = buildTree({1, 2, 2, -1, 3, -1, 3}, 0);
+	TreeNode *root = buildTreeFromLevelOrder({1, 2, 2, -1, 3, -1, 3});
 
 	cout << root;
 	cout << std::boolalpha << Solution().isSymmetric2(root);

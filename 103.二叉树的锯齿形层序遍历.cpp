@@ -75,6 +75,6 @@ public:
 
 
 int main() {
-	TreeNode *root = buildTree({3, 9, 20, -1, -1, 15, 7});
+	TreeNode *root = buildTreeFromLevelOrder({3, 9, 20, -1, -1, 15, 7});
 	Solution().zigzagLevelOrder(root);
 }
