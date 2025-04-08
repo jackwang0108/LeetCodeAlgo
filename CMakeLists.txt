@@ -88,3 +88,8 @@ add_executable(
     226
     "226.翻转二叉树.cpp"
 )
+
+add_executable(
+    230
+    "230.二叉搜索树中第-k-小的元素.cpp"
+)
