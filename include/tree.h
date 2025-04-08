@@ -124,3 +124,54 @@ TreeNode *buildTreeFromPreAndInOrder(const vector<int> &preorder, const vector<i
 
 	return processBuildTreeFromPreAndInOrder(inOrderIndexMap, preorder, 0, preorder.size() - 1, inorder, 0, inorder.size() - 1);
 }
+
+/**
+ * @brief 从中序遍历和后序遍历的结果构建二叉树
+ * 
+ * @param inOrderIndexMap 中序遍历的结果和索引的映射
+ * @param inorder 中序遍历的结果
+ * @param inStart 中序遍历的左边界
+ * @param inEnd 中序遍历的右边界
+ * @param postorder 后序遍历的结果
+ * @param postStart 后序遍历的左边界
+ * @param postEnd 后序遍历的右边界
+ * @return 构建好的二叉树的根节点
+ * 
+ * @note 该函数是递归的, 需要传入当前中序遍历和后序遍历左右子树的边界
+ */
+TreeNode *processBuildTreeFromInAndPostOrder(map<int, int> &inOrderIndexMap, const vector<int> &inorder, int inStart, int inEnd, const vector<int> &postorder, int postStart, int postEnd) {
+	if (inStart > inEnd || postStart > postEnd)
+		return nullptr;
+
+	int rootVal = postorder[postEnd];
+	TreeNode *root = new TreeNode(rootVal);
+
+	int inOrderRoot = inOrderIndexMap[rootVal];
+	int leftNumNodes = inOrderRoot - inStart;
+
+	root->left = processBuildTreeFromInAndPostOrder(inOrderIndexMap, inorder, inStart, inOrderRoot - 1, postorder, postStart, postStart + leftNumNodes - 1);
+	root->right = processBuildTreeFromInAndPostOrder(inOrderIndexMap, inorder, inOrderRoot + 1, inEnd, postorder, postStart + leftNumNodes, postEnd - 1);
+
+	return root;
+}
+
+/**
+ * @brief 从中序遍历和后序遍历的结果构建二叉树
+ * 
+ * @param inorder 中序遍历的结果
+ * @param postorder 后序遍历的结果
+ * @return 构建好的二叉树的根节点
+ */
+TreeNode *buildTreeFromInAndPostOrder(vector<int> &inorder, vector<int> &postorder) {
+	if (inorder.empty() || postorder.empty())
+		return nullptr;
+
+	if (inorder.size() != postorder.size())
+		return nullptr;
+
+	map<int, int> inMap;
+	for (int i = 0; i < inorder.size(); ++i)
+		inMap[inorder[i]] = i;
+
+	return processBuildTreeFromInAndPostOrder(inMap, inorder, 0, inorder.size() - 1, postorder, 0, postorder.size() - 1);
+}
