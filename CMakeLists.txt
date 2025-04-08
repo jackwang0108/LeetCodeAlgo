@@ -78,3 +78,8 @@ add_executable(
     116
     "116.填充每个节点的下一个右侧节点指针.cpp"
 )
+
+add_executable(
+    129
+    "129.求根节点到叶节点数字之和.cpp"
+)
