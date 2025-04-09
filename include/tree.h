@@ -2,12 +2,14 @@
 
 #include <iostream>
 #include <map>
+#include <queue>
 #include <string>
 #include <vector>
 
 using std::cout;
 using std::map;
 using std::ostream;
+using std::queue;
 using std::string;
 using std::vector;
 
@@ -50,8 +52,9 @@ ostream &operator<<(ostream &os, TreeNode *root) {
  * @return 构建好的二叉树的根节点
  * 
  * @note 该函数是递归的, 需要传入当前节点的索引
+ * @note 该函数假设二叉树是完全二叉树, 如果不是, 需要用-1填充二叉树使其成为满二叉树
  */
-TreeNode *processBuildTreeFromLevelOrder(const vector<int> &vec, int currIdx = 0) {
+TreeNode *processBuildTreeFromLevelOrder(const vector<int> &vec, int currIdx) {
 	if (currIdx >= vec.size())
 		return nullptr;
 
@@ -69,9 +72,47 @@ TreeNode *processBuildTreeFromLevelOrder(const vector<int> &vec, int currIdx = 0
  * 
  * @param vec 层序遍历的结果, -1表示空节点
  * @return 构建好的二叉树的根节点
+ * 
+ * @note 该函数允许二叉树不是完全二叉树
  */
-TreeNode *buildTreeFromLevelOrder(const vector<int> &vec) {
-	return processBuildTreeFromLevelOrder(vec, 0);
+TreeNode *processBuildTreeFromLevelOrder(const vector<int> &vec) {
+	if (vec.empty() || vec[0] == -1) return nullptr;
+
+	queue<TreeNode *> nodeQueue;
+	TreeNode *root = new TreeNode(vec[0]);
+	nodeQueue.push(root);
+
+	int idx = 1;
+	TreeNode *currNode;
+	while (!nodeQueue.empty() && idx < vec.size()) {
+		(currNode = nodeQueue.front(), nodeQueue.pop());
+
+		// 处理左子节点
+		if (idx < vec.size() && vec[idx] != -1) {
+			currNode->left = new TreeNode(vec[idx]);
+			nodeQueue.push(currNode->left);
+		}
+		idx++;
+
+		// 处理右子节点
+		if (idx < vec.size() && vec[idx] != -1) {
+			currNode->right = new TreeNode(vec[idx]);
+			nodeQueue.push(currNode->right);
+		}
+		idx++;
+	}
+
+	return root;
+}
+
+/**
+ * @brief 根据层序遍历的结果构建二叉树
+ * 
+ * @param vec 层序遍历的结果, -1表示空节点
+ * @return 构建好的二叉树的根节点
+ */
+TreeNode *buildTreeFromLevelOrder(const vector<int> &vec, bool assumeComplete = true) {
+	return assumeComplete ? processBuildTreeFromLevelOrder(vec, 0) : processBuildTreeFromLevelOrder(vec);
 }
 
 /**
