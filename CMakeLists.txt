@@ -98,3 +98,8 @@ add_executable(
     235
     "235.二叉搜索树的最近公共祖先.cpp"
 )
+
+add_executable(
+    236
+    "236.二叉树的最近公共祖先.cpp"
+)
