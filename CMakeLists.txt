@@ -93,3 +93,8 @@ add_executable(
     230
     "230.二叉搜索树中第-k-小的元素.cpp"
 )
+
+add_executable(
+    235
+    "235.二叉搜索树的最近公共祖先.cpp"
+)
