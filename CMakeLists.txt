@@ -108,3 +108,8 @@ add_executable(
     297
     "297.二叉树的序列化与反序列化.cpp"
 )
+
+add_executable(
+    404
+    "404.左叶子之和.cpp"
+)
