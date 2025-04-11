@@ -134,3 +134,9 @@ add_executable(
     24
     "24.两两交换链表中的节点.cpp"
 )
+
+
+add_executable(
+    25
+    "25.k-个一组翻转链表.cpp"
+)
