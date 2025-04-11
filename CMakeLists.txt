@@ -129,14 +129,17 @@ add_executable(
     "21.合并两个有序链表.cpp"
 )
 
-
 add_executable(
     24
     "24.两两交换链表中的节点.cpp"
 )
 
-
 add_executable(
     25
     "25.k-个一组翻转链表.cpp"
+)
+
+add_executable(
+    61
+    "61.旋转链表.cpp"
 )
