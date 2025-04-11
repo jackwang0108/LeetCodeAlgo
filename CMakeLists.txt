@@ -126,5 +126,11 @@ add_executable(
 
 add_executable(
     21
-"21.合并两个有序链表.cpp"
+    "21.合并两个有序链表.cpp"
+)
+
+
+add_executable(
+    24
+    "24.两两交换链表中的节点.cpp"
 )
