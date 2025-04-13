@@ -153,3 +153,8 @@ add_executable(
     109
     "109.有序链表转换二叉搜索树.cpp"
 )
+
+add_executable(
+    143
+    "143.重排链表.cpp"
+)
