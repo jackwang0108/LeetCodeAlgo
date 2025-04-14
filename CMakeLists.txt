@@ -178,3 +178,8 @@ add_executable(
     206
     "206.反转链表.cpp"
 )
+
+add_executable(
+    234
+    "234.回文链表.cpp"
+)
