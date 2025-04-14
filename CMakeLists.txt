@@ -158,3 +158,8 @@ add_executable(
     143
     "143.重排链表.cpp"
 )
+
+add_executable(
+    147
+    "147.对链表进行插入排序.cpp"
+)
