@@ -163,3 +163,8 @@ add_executable(
     147
     "147.对链表进行插入排序.cpp"
 )
+
+add_executable(
+    148
+    "148.排序链表.cpp"
+)
