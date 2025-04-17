@@ -183,3 +183,23 @@ add_executable(
     234
     "234.回文链表.cpp"
 )
+
+add_executable(
+    71
+    "71.简化路径.cpp"
+)
+
+add_executable(
+    225
+    "225.用队列实现栈.cpp"
+)
+
+add_executable(
+    316
+    "316.去除重复字母.cpp"
+)
+
+add_executable(
+    CD188
+    "CD188.单调栈结构(进阶).牛客网.cpp"
+)
