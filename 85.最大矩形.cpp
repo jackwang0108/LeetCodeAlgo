@@ -13,7 +13,8 @@ using std::vector;
 // @lc code=start
 class Solution {
 public:
-	// 单调栈, 就是84题的变种, 每一行作为直方图的底部
+	// 单调栈 + 压缩数组
+	// 压缩数组将二维数组转化为一维数组, 也就是将每一行作为直方图的底部, 而后转化为84题的变种, 使用单调栈解决
 	int maximalRectangle(vector<vector<char>> &matrix) {
 		vector<int> heights = vector<int>(matrix[0].size(), 0);
 
