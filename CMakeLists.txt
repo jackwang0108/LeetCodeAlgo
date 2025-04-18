@@ -203,3 +203,8 @@ add_executable(
     CD188
     "CD188.单调栈结构(进阶).牛客网.cpp"
 )
+
+add_executable(
+    907
+    "907.子数组的最小值之和.cpp"
+)
