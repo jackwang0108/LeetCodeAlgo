@@ -213,3 +213,13 @@ add_executable(
     HOR4
     "HOR4.大鱼吃小鱼.牛客网.cpp"
 )
+
+add_executable(
+    28
+    "28.找出字符串中第一个匹配项的下标.cpp"
+)
+
+add_executable(
+    572
+    "572.另一棵树的子树.cpp"
+)
