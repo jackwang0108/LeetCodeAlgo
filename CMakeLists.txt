@@ -223,3 +223,18 @@ add_executable(
     572
     "572.另一棵树的子树.cpp"
 )
+
+add_executable(
+    67
+    "67.二进制求和.cpp"
+)
+
+add_executable(
+    69
+    "69.x-的平方根.cpp"
+)
+
+add_executable(
+    70
+    "70.爬楼梯.cpp"
+)
