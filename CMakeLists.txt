@@ -238,3 +238,13 @@ add_executable(
     70
     "70.爬楼梯.cpp"
 )
+
+add_executable(
+    119
+    "119.杨辉三角-ii.cpp"
+)
+
+add_executable(
+    125
+    "125.验证回文串.cpp"
+)
