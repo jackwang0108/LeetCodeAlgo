@@ -4,6 +4,7 @@
  * [136] 只出现一次的数字
  */
 
+#include <numeric>
 #include <vector>
 
 using std::vector;
@@ -12,12 +13,7 @@ using std::vector;
 class Solution {
 public:
 	int singleNumber(vector<int> &nums) {
-
-		int result = nums[0];
-		for (int i = 1; i < nums.size(); i++)
-			result ^= nums[i];
-
-		return result;
+		return std::accumulate(nums.begin(), nums.end(), 0, std::bit_xor<int>());
 	}
 };
 // @lc code=end
