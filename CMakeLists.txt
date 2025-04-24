@@ -248,3 +248,8 @@ add_executable(
     125
     "125.验证回文串.cpp"
 )
+
+add_executable(
+    LuoGuP4391
+    "LuoGu.P4391.cpp"
+)
