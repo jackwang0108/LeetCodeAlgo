@@ -7,11 +7,22 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Debug",
+            "name": "lldb调试-外部终端",
             "program": "${workspaceFolder}/bin/${input:debugTarget}",
             "preLaunchTask": "CMake: 生成",
             "args": [],
-            "cwd": "${workspaceFolder}"
+            "cwd": "${workspaceFolder}",
+            "console": "externalTerminal",
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "lldb调试-内部终端",
+            "program": "${workspaceFolder}/bin/${input:debugTarget}",
+            "preLaunchTask": "CMake: 生成",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
         }
     ],
     "inputs": [
